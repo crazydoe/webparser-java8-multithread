@@ -30,9 +30,9 @@ public class ProductsDownloader {
         ProgressBar bar;
 
         if (depth == Integer.MAX_VALUE) {
-            bar = new ProgressBar("Downloading page", 0);
+            bar = new ProgressBar("Downloading pages", 0);
         } else {
-            bar = new ProgressBar("Downloading page", depth);
+            bar = new ProgressBar("Downloading pages", depth);
         }
         bar.start();
 
@@ -57,8 +57,7 @@ public class ProductsDownloader {
                     products.addAll(wrapper.getDataSet());
                 }
                 nextUrl = wrapper.getNextPageURL();
-            } catch (SocketTimeoutException ste) {
-                log.warn("Website skipped due to timeout error, URL: " + nextUrl);
+            } catch (SocketTimeoutException ignored) {
             } catch (ParsingException e) {
                 e.printStackTrace();
             } catch (IOException e) {

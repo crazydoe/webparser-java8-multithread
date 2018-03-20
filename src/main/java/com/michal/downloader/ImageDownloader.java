@@ -13,10 +13,10 @@ import java.net.URL;
 
 public class ImageDownloader implements Runnable {
 
+    public static int errCounter = 0;
     private Encoder encoder;
     private Product product;
     private ProgressBar bar;
-    private final Logger log = LoggerFactory.getLogger(getClass());
 
     public ImageDownloader(final Product product, final Encoder encoder, final ProgressBar bar) {
         this.encoder = encoder;
@@ -30,7 +30,7 @@ public class ImageDownloader implements Runnable {
             image = ImageIO.read(new URL(product.getImage()));
             product.setImage(encoder.encode(image, "jpg"));
         } catch (IOException e) {
-            log.warn(e.getMessage());
+            errCounter++;
         }
         return product;
     }

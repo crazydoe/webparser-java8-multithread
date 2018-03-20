@@ -1,5 +1,6 @@
 package com.michal;
 
+import com.michal.downloader.ImageDownloader;
 import com.michal.enums.EncoderType;
 import com.michal.enums.InputType;
 import com.michal.enums.OutputType;
@@ -9,7 +10,6 @@ import java.net.UnknownHostException;
 
 
 public class Application {
-    private static BufferedReader bufferedReader;
 
     public static void main(String[] args) throws IOException {
 
@@ -18,7 +18,7 @@ public class Application {
         String url;
         String outFormat;
         String filePath;
-        bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
         System.out.print("Url: ");
         url = bufferedReader.readLine();
@@ -60,7 +60,7 @@ public class Application {
                 return;
         }
 
-        System.out.print("Output file path (ex. /User/desktop/fileName.xml): ");
+        System.out.print("Output file name: ");
         filePath = bufferedReader.readLine();
         File saveFile = new File(filePath);
 
@@ -87,12 +87,15 @@ public class Application {
             }
         }
 
+        if(ImageDownloader.errCounter != 0) {
+            System.out.println("Stats: " + ImageDownloader.errCounter + " images could not be downloaded, " +
+                    "\n\tcause: Could not get input stream from url");
+        }
+
         System.out.println("Saving to file..");
         writeStringToFile(saveFile, parsed);
+        System.out.println("done");
 
-        System.out.println(".      .");
-        System.out.println(" .done.");
-        System.out.println(".      .");
     }
 
     private static void writeStringToFile(File file, String string) {
