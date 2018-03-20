@@ -10,7 +10,7 @@ import java.io.IOException;
 public class Base64Encoder implements Encoder {
 
     @Override
-    public String encode(BufferedImage image, String type) throws IOException {
+    public String encode(final BufferedImage image, final String type) throws IOException {
         String imageString;
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
         ImageIO.write(image, type, bos);

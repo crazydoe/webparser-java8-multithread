@@ -26,7 +26,7 @@ public class ProductsDownloader {
         this.parser = parser;
     }
 
-    public List<Product> downloadAllProducts(final String url, final int timeout, int depth) throws IOException {
+    public List<Product> downloadAllProducts(final String url, final int timeout, final int depth) throws IOException {
         ProgressBar bar;
 
         if (depth == Integer.MAX_VALUE) {

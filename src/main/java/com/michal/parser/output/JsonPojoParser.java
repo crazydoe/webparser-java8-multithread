@@ -20,20 +20,4 @@ public class JsonPojoParser implements PojoParser {
         return json;
     }
 
-    private class JsonWrapper {
-        private List<Product> products;
-
-        public JsonWrapper(List<Product> products) {
-            this.products = products;
-        }
-
-        public List<Product> getProducts() {
-            return products;
-        }
-
-        public JsonWrapper setProducts(List<Product> products) {
-            this.products = products;
-            return this;
-        }
-    }
 }
