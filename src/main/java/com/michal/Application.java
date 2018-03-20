@@ -87,7 +87,7 @@ public class Application {
             }
         }
 
-        if(ImageDownloader.errCounter != 0) {
+        if (ImageDownloader.errCounter != 0) {
             System.out.println("Stats: " + ImageDownloader.errCounter + " images could not be downloaded, " +
                     "\n\tcause: Could not get input stream from url");
         }

@@ -3,8 +3,6 @@ package com.michal.downloader;
 import com.michal.encoder.Encoder;
 import com.michal.model.Product;
 import me.tongfei.progressbar.ProgressBar;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
